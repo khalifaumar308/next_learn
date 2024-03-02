@@ -3,19 +3,20 @@
 import NavLink from "./navbarLink/NavLink";
 import { useState } from "react";
 
+const links = [
+  { title: "HomePage", path: "/" },
+  { title: "Contact", path: "/contact" },
+  { title: "Blog", path: "/blog" },
+];
+
 const Links = () => {
   const [open, setOpen] = useState(false);
-  const links = [
-    { title: "HomePage", path: "/" },
-    { title: "Contact", path: "/contact" },
-    { title: "Blog", path: "/blog" },
-  ];
   const authenticated = true;
   const isAdmin = true;
   return (
     <div>
 
-      <div className=" sm:flex items-center gap-3 ">
+      <div className="hidden md:flex items-center gap-3 ">
         {links.map((link, id) => (
           <NavLink item={link} key={id} />
         ))}{
@@ -31,12 +32,14 @@ const Links = () => {
           )
       }
       </div>
-      <button onClick={()=>setOpen(!open)}>Menu</button>
+      <button className="flex md:hidden" onClick={()=>setOpen(!open)}>Menu</button>
       {
         open &&
-        <div className={`absolute top-[100px] right-0 w-1/2 h-[calc(100vh-100px)] flex 
-        flex-col items-center content-center gap-3 overflow-hidden
-        transition-[height 0.5s ease-in-out]`}>
+        <div
+            className={`
+              absolute top-[100px] h-[calc(100vh-100px)] w-1/2 right-0
+              flex flex-col items-center content-center gap-3 overflow-hidden
+              transition-[height 0.5s ease-in-out] `}>
           {links.map(link=><NavLink key={link.title} item={link} />)}
         </div>
       }

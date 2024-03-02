@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <div
-          className="w-[1536px] m-auto pl-[50px] pb-[50px] pr-[50px] min-h-[100vh] 
+          className="mx-6 md:w-[1536px] m-auto md:pl-[50px] pb-[50px] md:pr-[50px] min-h-[100vh] 
             flex flex-col justify-between"
         >
           <Navbar />
